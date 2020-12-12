@@ -1,0 +1,124 @@
+@media only screen and (max-width: 700px) {
+  nav {
+    height: 70px;
+  }
+
+  .videNav {
+    height: 70px;
+  }
+
+  .logoNav {
+    position: absolute;
+    right: 2%;
+    top: 7%;
+    /* Pour mettre le logo au centre
+    left: 50%;
+    transform: translate(-50%, 0%);
+    */
+  }
+
+  .logoNav img {
+    height: 62px;
+  }
+
+  .contenuNav {
+    display: none;
+  }
+
+  .contenuNavMobile {
+    position: absolute;
+    top: 26%;
+    left: 3%;
+  }
+
+  .contenuNavMobile ion-icon {
+    color: black;
+    font-size: 36px;
+  }
+
+  .contenuNavMobile button {
+    margin: 0;
+  }
+
+  #menuDeroulant {
+    visibility: hidden;
+    max-width: 100%;
+    /*flex-direction: column;*/
+    margin-top: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #5355ad;
+  }
+
+  #menuDeroulant p {
+    text-align: center;
+    opacity: 1;
+  }
+
+  #menuDeroulant a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 5vw;
+  }
+
+  #menuDeroulant a:hover {
+    color: white;
+    transition: all 0.5s ease;
+  }
+}
+
+@media only screen and (min-width: 701px) {
+  nav {
+    height: 90px;
+  }
+
+  .videNav {
+    height: 90px;
+  }
+
+  .logoNav {
+    position: absolute;
+    left: 1%;
+    top: 7%;
+  }
+
+  .logoNav img {
+    height: 80px;
+  }
+
+  .contenuNavMobile {
+    display: none;
+  }
+
+  #menuDeroulant {
+    display: none;
+  }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  background-color: #5D5FC6;
+  width: 100%;
+  z-index: 1;
+}
+
+.videNav {
+  /* height en haut */
+  width: 100%;
+}
+
+.contenuNav a {
+  color: white;
+  text-decoration: none;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 22px;
+}
+
+.contenuNav {
+  position: absolute;
+  right: 0;
+  top: 30%;
+}

@@ -1,0 +1,97 @@
+# Import standard python modules.
+import sys
+
+from datetime import datetime
+
+import csv
+
+# This example uses the MQTTClient instead of the REST client
+from Adafruit_IO import MQTTClient, Client
+
+# Set to your Adafruit IO key.
+# Remember, your key is a secret,
+# so make sure not to publish it when you publish this code!
+ADAFRUIT_IO_KEY = 'aio_hwMO42kJcEhB0kpEUuXH7iGoP5vN'
+
+# Set to your Adafruit IO username.
+# (go to https://accounts.adafruit.com to find your username)
+ADAFRUIT_IO_USERNAME = 'MarieBardet'
+
+FEED_ID = 'humidity'
+# Set to the ID of the feed to subscribe to for updates.
+
+# Define callback functions which will be called when certain events happen.
+
+def getvalue():
+        try:
+                aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
+                data = aio.receive_next(FEED_ID)
+        except Exception as e:
+                data = -1
+        return data
+
+def orderhumidity():
+        order = -1
+        content_variable = open('humidity_data.csv', "r")
+        file_lines = content_variable.readlines()
+        content_variable.close()
+        last_line = file_lines[len(file_lines)-1] #chaine de caractères ave
+        l = last_line.split(',') #On convertie en liste
+
+        humidity = int(l[1]) #taux d'humidité
+        print(humidity)
+        #en fonction des données d'humidité,  on donne un ordre
+
+        order = 0 #si aucune action est nécessaire
+
+        if humidity < 30 : #s'il faut arroser
+                order = 1
+        else:
+                order = 0
+        return order
+
+
+def publish(order):
+        aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
+        try:
+                temp_feed = aio.feeds('order')
+        except RequestError:
+                temp_feed=Feed(name='order')
+                temp_feed=aio.create_feed(temp_feed)
+
+        aio.send('order',order)
+
+        #On crée un base de donnée qui enregistre les actions faites
+
+        #on récupère la date et l'heure
+        now = datetime.now()
+        dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
+        #on écrit dans la base de donnée la valeur de l'ordre et la date
+        c = csv.writer(open('order.csv', 'a'))
+        c.writerow([order,dt_string])
+
+
+
+def main():
+        data_humidity = 0
+        date_csv = 0
+
+        while data_humidity != -1:
+                data_humidity = getvalue()
+                if data_humidity != -1:
+                        #print(data.value)
+                        #print(data.created_at)
+                        valeur = str(data_humidity.value)
+                        date_csv = data_humidity.created_at
+                        date_csv = datetime.strptime(date_csv, '%Y-%m-%dT%H:%M:%SZ')
+                        c = csv.writer(open('humidity_data.csv', 'a'))
+                        c.writerow([date_csv, valeur])
+	#ordre = orderhumidity()
+        #print(ordre)
+        #publish(ordre)
+
+
+if __name__ == "__main__":
+        main()
+
