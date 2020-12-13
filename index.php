@@ -29,12 +29,15 @@
 
 </head>
 <body>
+<!-- define our logo -->
     <?php include('nav.php'); ?>
 
+<!-- the background image -->
     <div class="imgtop">
       <!-- <img src="https://i.imgur.com/ODax3Pw.jpg"></img> -->
       <img src="http://www.environmental-watch.com/wp-content/uploads/2013/09/shutterstock_82951156.jpg"></img>
       <div class="imgTexte">
+        <!-- the titles -->
         <h1>PocPocPoc</h1>
         <h4>The future of watering</h4>
         <div class="boutonBas">
@@ -50,7 +53,7 @@
       <div class="icones">
         <div class="icone1">
           <ion-icon name="leaf"></ion-icon>
-         <!--  <ion-icon name="checkbox"></ion-icon> -->
+         <!--  buttons  -->
           <p>In this part, you are able to choose the type of plants of your green facade               </p>
           <p>Choose your plant : </p>
           <style>
@@ -138,7 +141,7 @@
 
     <div id="contact">
 
-
+<!-- graphs  -->
 
 <div class="icone2">
           <ion-icon name="color-fill"></ion-icon>
@@ -190,7 +193,7 @@
                 </div>
 
 
-
+<!-- contact information -->
 
       <h3>Contact</h3>
       <div class="rs"><!-- réseaux sociaux -->
@@ -213,6 +216,8 @@
       </div>
 
     </div>
+
+  <!-- our contact information (social networks and mail).  -->
 
     <?php include('footer.php'); ?>
 
