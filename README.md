@@ -7,5 +7,5 @@ We consider it as a satisfying task because this allows us to see beyond the sch
 
 Enjoy !
 
-Stéphane TRAN & Marie BARDET & Victor NITOT & Stanislas MONTCEAU
+Stéphane TRAN, Marie BARDET, Victor NITOT & Stanislas MONTCEAU
 
