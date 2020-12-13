@@ -29,15 +29,21 @@
 
 </head>
 <body>
-<!-- define our logo -->
+
+<!-- we define our logo 
+
+The logo is an image that we posted on a separate file “nav.php” in case we want to display the graphs on separate pages, we will simply need to include this file. We get our logo from an image hosting site.-->
+
     <?php include('nav.php'); ?>
 
-<!-- the background image -->
+<!-- the background image 
+
+The background image is an image that we get from the internet with its URL.-->
+
     <div class="imgtop">
-      <!-- <img src="https://i.imgur.com/ODax3Pw.jpg"></img> -->
       <img src="http://www.environmental-watch.com/wp-content/uploads/2013/09/shutterstock_82951156.jpg"></img>
       <div class="imgTexte">
-        <!-- the titles -->
+        <!-- The titles are simple tags (h1,h4) where we can write.  -->
         <h1>PocPocPoc</h1>
         <h4>The future of watering</h4>
         <div class="boutonBas">
@@ -53,7 +59,7 @@
       <div class="icones">
         <div class="icone1">
           <ion-icon name="leaf"></ion-icon>
-         <!--  buttons  -->
+         <!--  The buttons are display with button tags with the CSS code above. We can add image is an image that we get from the internet with its URL.  -->
           <p>In this part, you are able to choose the type of plants of your green facade               </p>
           <p>Choose your plant : </p>
           <style>
